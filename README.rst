@@ -1,3 +1,4 @@
-# yam2ncml
+yam2ncml
+========
 
-ROMS ncML aggregation from YAML especification.
+ncml aggregation from YAML especifications.
