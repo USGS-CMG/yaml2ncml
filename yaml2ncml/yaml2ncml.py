@@ -5,8 +5,10 @@ import netCDF4
 from StringIO import StringIO
 
 
+__all__ = ['yaml2ncml']
 
-#map ROMS variables to CF standard_names
+
+# Map ROMS variables to CF standard_names.
 cf = {'zeta':'sea_surface_height_above_datum',
       'temp':'sea_water_potential_temperature',
       'salt':'sea_water_salinity',
@@ -15,70 +17,15 @@ cf = {'zeta':'sea_surface_height_above_datum',
       'ubar':'barotropic_x_sea_water_velocity',
       'vbar':'barotropic_y_sea_water_velocity',
      'Hwave':'sea_surface_wave_significant_height'}
-        
 
-
-
-x = """
-dataset:
-    id: "USGS_COAWST_MVCO_CBLAST_Ripples_SWAN_40m"
-
-    title: "USGS-CMG-COAWST Model: CBLAST2007 Ripples with SWAN-40m res"
-
-    summary: "Simulation of hydrodynamics and bottom stress south of Marthas Vineyard, MA using the COAWST modeling system.  These results are from the 40m inner nest of a four-level nested simulation."
-    
-    creator:
-        email: nganju@usgs.gov
-        name: Neil Ganju
-        url: http://water.usgs.gov/fluxes
-
-    publisher:
-        email: tkalra@usgs.gov
-        name: Tarandeep Kalra
-        url: http://www.usgs.gov
-        
-    contributor:
-        role: advisor
-        email: rsignell@usgs.gov
-        name: Rich Signell
-        url: http://profile.usgs.gov/rsignell
-
-        
-    license: "The data may be used and redistributed for free but is not intended for legal use, since it may contain inaccuracies. Neither the data Contributor, nor the United States Government, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness, of this information."
-    
-    references: 
-        - http://www.whoi.edu/science/AOPE/dept/CBLASTmain.html
-        - http://water.usgs.gov/fluxes/mvco.html
-        - doi:10.1029/2011JC007035
-
-    acknowledgements:
-        - USGS-CMGP
-        - NSF    
-
-variables: 
-    include: 
-        - temp
-        - salt
- 
-    exclude: 
-        - ubar
-        - vbar
-
-aggregation:
-    time_var: ocean_time
-    dir: /usgs/data0/mvco_ce/mvco_output/spatial_7_ar0fd
-    sample_file: his_case7_ar0fd_0001.nc
-    pattern: .*/his_case7_ar0fd_[0-9]{4}\.nc$
-"""
-
-# Couldn't get this to work
+# Couldn't get this to work.
 # stream = open(StringIO(x))
 
-# so read file instead
-with open("meta.yaml", 'r') as stream:
-    a = yaml.load(stream)
+# So read file instead.
+def load_tempplate(yamlfile):
+    with open(yamlfile, 'r') as stream:
+        a = yaml.load(stream)
 
-a['dataset']
 
 def header():
     str='<?xml version="1.0" encoding="UTF-8"?>\n<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">\n'
@@ -86,9 +33,11 @@ def header():
     str += str_att('cdm_data_type','Grid')
     return str
 
+
 def footer(str):
     str += '</netcdf>\n'
     return str
+
 
 def str_att(name,value):
     if isinstance(value, list):
@@ -135,6 +84,7 @@ def add_global_atts(str,a):
                 str += str_att('_'.join([key,'name']),name)
     return str
 
+
 def add_var_atts(str,a):
     ncfile=os.path.join(a['aggregation']['dir'],a['aggregation']['sample_file'])
     nc = netCDF4.Dataset(ncfile)
@@ -175,6 +125,7 @@ def add_var_atts(str,a):
         
     return str
 
+
 def write_grid_var(str):
     grid_var="""<variable name="grid" type="int">
         <attribute name="cf_role" value="grid_topology"/>
@@ -193,6 +144,7 @@ def write_grid_var(str):
     str += grid_var
     return str
 
+
 def add_aggregation_scan(str,a):
     agg = a['aggregation']
 #    <aggregation dimName="ocean_time" type="joinExisting">
@@ -202,14 +154,14 @@ def add_aggregation_scan(str,a):
     str += '<scan location="." regExp="{:s}" subdirs="false"/>\n</aggregation>\n'.format(agg['pattern'])
     return str
 
-str = header()
-str = add_global_atts(str,a)
-str = add_var_atts(str,a)
-str = write_grid_var(str)
-str = add_aggregation_scan(str,a)
-str = footer(str)
 
-print(str)
+def yaml2ncml():
+    str = header()
+    str = add_global_atts(str, a)
+    str = add_var_atts(str, a)
+    str = write_grid_var(str)
+    str = add_aggregation_scan(str, a)
+    str = footer(str)
 
-with open('{:s}/test4.ncml'.format(a['aggregation']['dir']),'w') as text_file:
-    text_file.write("{:s}".format(str))
+    with open('{:s}/test4.ncml'.format(a['aggregation']['dir']),'w') as text_file:
+        text_file.write("{:s}".format(str))

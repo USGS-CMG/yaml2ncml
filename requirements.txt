@@ -1,3 +1,7 @@
-yaml
+# Default
+pyyaml
 pyncml
 netCDF4
+# Testing
+pytest
+pytest-cov

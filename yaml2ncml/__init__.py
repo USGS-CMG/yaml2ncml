@@ -3,4 +3,4 @@ from __future__ import absolute_import
 
 __version__ = '0.1.0'
 
-from yaml2ncml import yaml2ncml
+from .yaml2ncml import *
