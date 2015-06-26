@@ -1,0 +1,3 @@
+include README.rst
+include *.txt
+include yaml2ncml/*.py
