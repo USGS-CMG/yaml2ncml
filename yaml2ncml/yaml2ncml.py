@@ -9,11 +9,12 @@ __doc__ = """
 Generate ncml based on a yaml file.
 
 Usage:
-    yaml2ncml INFILE [-o OUTFILE --output=OUTFILE]
+    yaml2ncml INFILE [--output=OUTFILE]
 
     yaml2ncml (-h | --help | --version)
 
 Examples:
+    yaml2ncml roms.yaml
     yaml2ncml roms.yaml --output=roms.ncml
 
 Arguments:
@@ -149,7 +150,7 @@ cf = dict(zeta='sea_surface_height_above_datum',
           vbar='barotropic_y_sea_water_velocity',
           Hwave='sea_surface_wave_significant_height')
 
-def main(yml):
+def build(yml):
     text = header()
     text = add_global_atts(text, yml)
     text = add_var_atts(text, yml)
@@ -158,15 +159,15 @@ def main(yml):
     text = footer(text)
     return text
 
-if __name__ == '__main__':
+def main():
     args = docopt(__doc__, version='0.1.0')
     fname = args.get('INFILE')
-    fout = args.get('OUTFILE', None)
+    fout = args.get('--output', None)
 
     with open(fname, 'r') as stream:
         yml = yaml.load(stream)
 
-    text = main(yml)
+    text = build(yml)
 
     if fout:
         with open(fout, 'w') as f:
