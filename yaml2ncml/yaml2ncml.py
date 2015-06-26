@@ -1,8 +1,28 @@
 import os
+import sys
+import yaml
 import netCDF4
 
-import yaml
+from docopt import docopt
 
+__doc__ = """
+Generate ncml based on a yaml file.
+
+Usage:
+    yaml2ncml INFILE [-o OUTFILE --output=OUTFILE]
+
+    yaml2ncml (-h | --help | --version)
+
+Examples:
+    yaml2ncml roms.yaml --output=roms.ncml
+
+Arguments:
+  file      yaml file.
+
+Options:
+  -h --help     Show this screen.
+  -v --version     Show version.
+"""
 
 def str_att(name, value):
     if isinstance(value, list):
@@ -129,16 +149,27 @@ cf = dict(zeta='sea_surface_height_above_datum',
           vbar='barotropic_y_sea_water_velocity',
           Hwave='sea_surface_wave_significant_height')
 
-if __name__ == '__main__':
-    with open("./tests/roms.yaml", 'r') as stream:
-        a = yaml.load(stream)
-
+def main(yml):
     text = header()
-    text = add_global_atts(text, a)
-    text = add_var_atts(text, a)
+    text = add_global_atts(text, yml)
+    text = add_var_atts(text, yml)
     text = write_grid_var(text)
-    text = add_aggregation_scan(text, a)
+    text = add_aggregation_scan(text, yml)
     text = footer(text)
+    return text
 
-    with open('{:s}/test6.ncml'.format(a['aggregation']['dir']),'w') as text_file:
-        text_file.write("{:s}".format(text))
+if __name__ == '__main__':
+    args = docopt(__doc__, version='0.1.0')
+    fname = args.get('INFILE')
+    fout = args.get('OUTFILE', None)
+
+    with open(fname, 'r') as stream:
+        yml = yaml.load(stream)
+
+    text = main(yml)
+
+    if fout:
+        with open(fout, 'w') as f:
+            f.write("{:s}".format(text))
+    else:
+        sys.stdout.write(text)
