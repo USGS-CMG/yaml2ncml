@@ -34,6 +34,10 @@ rootpath = os.path.abspath(os.path.dirname(__file__))
 def read(*parts):
     return open(os.path.join(rootpath, *parts), 'r').read()
 
+
+pkg_data = {'': ['templates/*.tpl']}
+
+
 long_description = '{}\n{}'.format(read('README.rst'), read('CHANGES.txt'))
 LICENSE = read('LICENSE.txt')
 
@@ -61,4 +65,5 @@ setup(name='yaml2ncml',
                    'License :: OSI Approved :: MIT License'],
       tests_require=['pytest'],
       cmdclass=dict(test=PyTest),
+      package_data=pkg_data,
       zip_safe=False)
