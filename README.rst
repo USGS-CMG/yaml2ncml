@@ -37,6 +37,10 @@ roms.yaml
         title: "USGS-CMG-COAWST Model: CBLAST2007 Ripples with SWAN-40m res"
 
         summary: "Simulation of hydrodynamics and bottom stress south of Marthas Vineyard, MA using the COAWST modeling system.  These results are from the 40m inner nest of a four-level nested simulation."
+        
+        project:
+            - CMG_Portal
+            - Sandy_Portal
 
         creator:
             email: nganju@usgs.gov
@@ -81,6 +85,4 @@ roms.yaml
         sample_file: test_nc4_0001.nc
         pattern: .*test_nc4_[0-9]{4}\.nc$
 
-    distribution:
-        - CMG_Portal
-        - Sandy_Portal
+
