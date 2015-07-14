@@ -99,6 +99,17 @@ def add_var_atts(text, a):
     v_vars = [var for var, vart in ncv.items() if 'eta_v' in
               vart.dimensions and 'xi_v' in vart.dimensions]
 
+# write standard_name for time coordinate variable
+    var = 'ocean_time'
+    if var in ncv.keys():
+        try:
+            str += '\n<variable name="{:s}">\n'.format(var)
+            str += str_att('standard_name',cf[var]) 
+            str += '</variable>\n\n'
+        except:
+            pass
+    
+
     for var in vars:
         text += '<variable name="{:s}">\n'.format(var)
         try:

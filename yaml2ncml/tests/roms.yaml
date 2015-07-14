@@ -5,6 +5,12 @@ dataset:
 
     summary: "Simulation of hydrodynamics and bottom stress south of Marthas Vineyard, MA using the COAWST modeling system.  These results are from the 40m inner nest of a four-level nested simulation."
 
+    naming_authority: "gov.usgs.cmg"
+
+    project:
+        - CMG_Portal
+        - Sandy_Portal
+
     creator:
         email: nganju@usgs.gov
         name: Neil Ganju
@@ -47,10 +53,3 @@ aggregation:
     dir: data/
     sample_file: test_nc4_0001.nc
     pattern: .*test_nc4_[0-9]{4}\.nc$
-
-
-
-distribution:
-    - CMG_Portal
-    - Sandy_Portal
-
