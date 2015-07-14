@@ -25,7 +25,8 @@ Options:
   -v --version     Show version.
 """
 
-def str_att(name, value):
+
+def attribute_name(name, value):
     if isinstance(value, list):
         value = ','.join(value)
     msg = '  <attribute name="{:s}" type="String" value="{:s}"/>\n'
@@ -33,10 +34,13 @@ def str_att(name, value):
 
 
 def header():
-    text = '<?xml version="1.0" encoding="UTF-8"?>\n<netcdf xmlns='
-    text += '"http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">\n'
-    text += str_att('Conventions','CF-1.6, SGRID-0.1, ACDD-1.3')
-    text += str_att('cdm_data_type','Grid')
+    conventions = attribute_name('Conventions', 'CF-1.6, SGRID-0.1, ACDD-1.3')
+    cdm = attribute_name('cdm_data_type', 'Grid')
+
+    text = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<netcdf xmlns='
+            '"http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">\n'
+            '{}{}'.format(conventions, cdm))
     return text
 
 
@@ -44,37 +48,39 @@ def footer(text):
     text += '</netcdf>\n'
     return text
 
+
 def add_global_atts(text, a):
     d = a['dataset']
     for key, value in d.items():
         # Handle simple attribute pairs first.
         if key in ['id', 'license', 'summary', 'title', 'project',
                    'naming_authority', 'references', 'acknowledgments']:
-            text += str_att(key,value)
+            text += attribute_name(key, value)
         elif key in ['creator', 'publisher']:
             email = value.get("email", None)
             if email:
-                text += str_att('_'.join([key, 'email']), email)
+                text += attribute_name('_'.join([key, 'email']), email)
             url = value.get("url", None)
             if url:
-                text += str_att('_'.join([key, 'url']), url)
+                text += attribute_name('_'.join([key, 'url']), url)
             name = value.get("name", None)
             if name:
-                text += str_att('_'.join([key, 'name']), name)
+                text += attribute_name('_'.join([key, 'name']), name)
         elif key in ['contributor']:
             role = value.get("role", None)
             if email:
-                text += str_att('_'.join([key, 'role']), role)
+                text += attribute_name('_'.join([key, 'role']), role)
             email = value.get("email", None)
             if email:
-                text += str_att('_'.join([key, 'email']), email)
+                text += attribute_name('_'.join([key, 'email']), email)
             url = value.get("url", None)
             if url:
-                text += str_att('_'.join([key, 'url']), url)
+                text += attribute_name('_'.join([key, 'url']), url)
             name = value.get("name", None)
             if name:
-                text += str_att('_'.join([key, 'name']), name)
+                text += attribute_name('_'.join([key, 'name']), name)
     return text
+
 
 def add_var_atts(text, a):
     ncfile = os.path.join(a['aggregation']['dir'],
@@ -113,42 +119,41 @@ def add_var_atts(text, a):
     for var in vars:
         text += '<variable name="{:s}">\n'.format(var)
         try:
-            text += str_att('standard_name',cf[var])
+            text += attribute_name('standard_name', cf[var])
         except:
             pass
-        text += str_att('grid','grid')
-        text += str_att('content_coverage_type','modelResult')
+        text += attribute_name('grid', 'grid')
+        text += attribute_name('content_coverage_type', 'modelResult')
         if var in rho_vars:
-            text += str_att('location','face')
+            text += attribute_name('location', 'face')
         elif var in u_vars:
-            text += str_att('location','edge1')
+            text += attribute_name('location', 'edge1')
         elif var in v_vars:
-            text += str_att('location','edge2')
+            text += attribute_name('location', 'edge2')
         text += '</variable>\n\n'
     return text
 
-def write_grid_var(text):
-    grid_var="""<variable name="grid" type="int">
-        <attribute name="cf_role" value="grid_topology"/>
-        <attribute name="topology_dimension" type="int" value="2"/>
-        <attribute name="node_dimensions" value="xi_psi eta_psi"/>
-        <attribute name="face_dimensions"
-            value="xi_rho: xi_psi (padding: both) eta_rho: eta_psi (padding: both)"/>
-        <attribute name="edge1_dimensions" value="xi_u: xi_psi eta_u: eta_psi (padding: both)"/>
-        <attribute name="edge2_dimensions" value="xi_v: xi_psi (padding: both) eta_v: eta_psi"/>
-        <attribute name="node_coordinates" value="lon_psi lat_psi"/>
-        <attribute name="face_coordinates" value="lon_rho lat_rho"/>
-        <attribute name="edge1_coordinates" value="lon_u lat_u"/>
-        <attribute name="edge2_coordinates" value="lon_v lat_v"/>
-        <attribute name="vertical_dimensions" value="s_rho: s_w (padding: none)"/>
-    </variable>\n """
+
+def write_grid_var(text, template='roms'):
+    if template == 'roms':
+        tpl = 'roms.tpl'
+    else:
+        raise ValueError('Template {!r} is not implemented!'.format(template))
+
+    fname = os.path.join(os.path.dirname(__file__), 'templates', tpl)
+    with open(fname) as f:
+        grid_var = '{}'.format(f.read())
     text += grid_var
     return text
 
+
 def add_aggregation_scan(text, a):
     agg = a['aggregation']
-    text += '<aggregation dimName="{:s}" type="joinExisting">\n'.format(agg['time_var'])
-    text += '<scan location="." regExp="{:s}" subdirs="false"/>\n</aggregation>\n'.format(agg['pattern'])
+    join_existing = ' <aggregation dimName="{:s}" type="joinExisting">\n'
+    scan = ('<scan location="." regExp="{:s}" subdirs="false"/>\n'
+            '</aggregation>\n')
+    text += join_existing.format(agg['time_var'])
+    text += scan.format(agg['pattern'])
     return text
 
 # Map ROMS variables to CF standard_names.
@@ -162,6 +167,7 @@ cf = dict(ocean_time='time',
           vbar='barotropic_y_sea_water_velocity',
           Hwave='sea_surface_wave_significant_height')
 
+
 def build(yml):
     text = header()
     text = add_global_atts(text, yml)
@@ -170,6 +176,7 @@ def build(yml):
     text = add_aggregation_scan(text, yml)
     text = footer(text)
     return text
+
 
 def main():
     args = docopt(__doc__, version='0.1.0')
