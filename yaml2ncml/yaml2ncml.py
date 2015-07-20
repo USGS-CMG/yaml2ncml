@@ -92,9 +92,12 @@ def add_var_atts(text, a):
     else:
         if a['variables']['include']:
             vars = list(vars_all.intersection(vars_include))
-    rho_vars = [var for var, vart in ncv.items() if 'eta_rho' in vart.dimensions and 'xi_rho' in vart.dimensions]
-    u_vars = [var for var, vart in ncv.items() if 'eta_u' in  vart.dimensions and 'xi_u' in vart.dimensions]
-    v_vars = [var for var, vart in ncv.items() if 'eta_v' in  vart.dimensions and 'xi_v' in vart.dimensions]
+    rho_vars = [var for var, vart in ncv.items() if 'eta_rho' in
+                vart.dimensions and 'xi_rho' in vart.dimensions]
+    u_vars = [var for var, vart in ncv.items() if 'eta_u' in
+                vart.dimensions and 'xi_u' in vart.dimensions]
+    v_vars = [var for var, vart in ncv.items() if 'eta_v' in
+                vart.dimensions and 'xi_v' in vart.dimensions]
 
 # write standard_name for time coordinate variable
     var = 'ocean_time'
