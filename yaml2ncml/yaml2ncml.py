@@ -103,9 +103,9 @@ def add_var_atts(text, a):
     var = 'ocean_time'
     if var in ncv.keys():
         try:
-            str += '\n<variable name="{:s}">\n'.format(var)
-            str += str_att('standard_name',cf[var]) 
-            str += '</variable>\n\n'
+            text += '\n<variable name="{:s}">\n'.format(var)
+            text += str_att('standard_name',cf[var]) 
+            text += '</variable>\n\n'
         except:
             pass
     
@@ -148,7 +148,7 @@ def write_grid_var(text):
 def add_aggregation_scan(text, a):
     agg = a['aggregation']
     text += '<aggregation dimName="{:s}" type="joinExisting">\n'.format(agg['time_var'])
-    text += '<scan location="." regExp="{:s}" subdirs="false"/>\n</aggregation>\n'.format(agg['pattern'])
+    text += '<scan location="{:s}" regExp="{:s}" subdirs="false"/>\n</aggregation>\n'.format(agg['dir'],agg['pattern'])
     return text
 
 # Map ROMS variables to CF standard_names.
