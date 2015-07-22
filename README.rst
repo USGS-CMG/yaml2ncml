@@ -86,3 +86,17 @@ roms.yaml
         pattern: .*test_nc4_[0-9]{4}\.nc$
 
 
+Notes on the YAML file: 
+
+1. The aggregation `dir:` is the directory where the data (e.g. NetCDF files) are located, relative to the directory where the NcML will be.  In the above example, the NetCDF files are located in a subdirectory called "Output".  If the NetCDF files will be in the same directory as the NcML file, specify `dir: '.'`. 
+
+2. Specify that all variables should appear in the aggregation (none excluded) like this:
+
+.. code:: yaml
+
+    variables:
+        include:
+            - All
+
+        exclude:
+            - None
