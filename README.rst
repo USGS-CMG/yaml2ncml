@@ -81,7 +81,7 @@ roms.yaml
 
     aggregation:
         time_var: ocean_time
-        dir: data/
+        dir: Output
         sample_file: test_nc4_0001.nc
         pattern: .*test_nc4_[0-9]{4}\.nc$
 
