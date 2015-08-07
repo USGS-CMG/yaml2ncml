@@ -174,7 +174,7 @@ def main():
     fout = args.get('--output', None)
 
     with open(fname, 'r') as stream:
-        yml = yaml.load(stream)
+        yml = yaml.safe_load(stream)
 
     text = build(yml)
 
