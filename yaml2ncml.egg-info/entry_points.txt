@@ -1,0 +1,3 @@
+[console_scripts]
+yaml2ncml = yaml2ncml.yaml2ncml:main
+
