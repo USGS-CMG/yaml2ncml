@@ -125,7 +125,6 @@ def add_var_atts(text, a):
     vars_display = vars_display - vars_display.intersection(Tobc)
 
     vars_display = list(vars_display)
-    print vars_display
 
 # add the variable attributes: S-grid stuff, display=T|F, ...
     for var in vars:
