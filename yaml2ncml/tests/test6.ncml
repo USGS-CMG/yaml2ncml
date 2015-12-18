@@ -19,180 +19,9 @@
   <attribute name="contributor_name" type="String" value="Rich Signell"/>
   <attribute name="id" type="String" value="USGS_COAWST_MVCO_CBLAST_Ripples_SWAN_40m"/>
   <attribute name="naming_authority" type="String" value="gov.usgs.cmg"/>
-
-<variable name="ocean_time">
-  <attribute name="standard_name" type="String" value="time"/>
-</variable>
-
-<variable name="bvstr">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge2"/>
-</variable>
-
-<variable name="tke">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="lon_rho">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="bvstrcwmax">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="mask_u">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge1"/>
-</variable>
-
-<variable name="bustr">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge1"/>
-</variable>
-
-<variable name="Zo_bedload">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="Zo_Nik">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="mask_rho">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="bedload_Usand_02">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge1"/>
-</variable>
-
-<variable name="mask_psi">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-</variable>
-
-<variable name="lat_psi">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-</variable>
-
-<variable name="dep_net">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="sustr">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge1"/>
-</variable>
-
-<variable name="zeta">
-  <attribute name="standard_name" type="String" value="sea_surface_height_above_datum"/>
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="erosion_stress">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="Lwave">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="Zo_def">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="sand_02">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="Zo_bedform">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="sand_01">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="angle">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="grain_density">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="bvstrc">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="ripple_height">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
 <variable name="Dwave">
   <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="saltation">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="Vbot">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="bustrcwmax">
-  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
@@ -200,212 +29,357 @@
 <variable name="Hwave">
   <attribute name="standard_name" type="String" value="sea_surface_wave_significant_height"/>
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="sandfrac_02">
+<variable name="Lwave">
   <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="sandfrac_01">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="pn">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="bvstrw">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="pm">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="bustrc">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="grain_diameter">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="mask_v">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge2"/>
-</variable>
-
-<variable name="lon_v">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge2"/>
-</variable>
-
-<variable name="lon_u">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge1"/>
-</variable>
-
-<variable name="lat_rho">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="lon_psi">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-</variable>
-
-<variable name="ripple_length">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="bedload_Vsand_01">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge2"/>
-</variable>
-
-<variable name="bustrw">
-  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
 <variable name="Ubot">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="lat_v">
+<variable name="Vbot">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge2"/>
+  <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="lat_u">
+<variable name="Zo_Nik">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge1"/>
+  <attribute name="location" type="String" value="face"/>
 </variable>
 
 <variable name="Zo_app">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="svstr">
+<variable name="Zo_bedform">
   <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge2"/>
-</variable>
-
-<variable name="bed_thickness">
-  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="settling_vel">
+<variable name="Zo_bedload">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="temp">
-  <attribute name="standard_name" type="String" value="sea_water_potential_temperature"/>
+<variable name="Zo_bio">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="Zo_def">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="Zo_wbl">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
 <variable name="active_layer_thickness">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="bedload_Vsand_02">
+<variable name="angle">
   <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge2"/>
-</variable>
-
-<variable name="Zo_bio">
-  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="h">
+<variable name="bed_thickness">
   <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="bedload_Usand_01">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge1"/>
-</variable>
-
-<variable name="sandmass_02">
-  <attribute name="grid" type="String" value="grid"/>
-  <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
-</variable>
-
-<variable name="sandmass_01">
-  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
 <variable name="bed_wave_amp">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="u">
-  <attribute name="standard_name" type="String" value="x_sea_water_velocity"/>
+<variable name="bedload_Usand_01">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge1"/>
+  <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="v">
-  <attribute name="standard_name" type="String" value="y_sea_water_velocity"/>
+<variable name="bedload_Usand_02">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="edge2"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bedload_Vsand_01">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bedload_Vsand_02">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bustr">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bustrc">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bustrcwmax">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bustrw">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bvstr">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bvstrc">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bvstrcwmax">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bvstrw">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="dep_net">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="ero_flux">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="erosion_stress">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="f">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
 </variable>
 
 <variable name="gls">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="grain_density">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="grain_diameter">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="h">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lat_psi">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lat_rho">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lat_u">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lat_v">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lon_psi">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lon_rho">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lon_u">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lon_v">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="mask_psi">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="mask_rho">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="mask_u">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="mask_v">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="pm">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="pn">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="ripple_height">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="ripple_length">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
@@ -413,26 +387,139 @@
 <variable name="salt">
   <attribute name="standard_name" type="String" value="sea_water_salinity"/>
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="f">
+<variable name="saltation">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="ero_flux">
+<variable name="sand_01">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
 </variable>
 
-<variable name="Zo_wbl">
+<variable name="sand_02">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="sandfrac_01">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="sandfrac_02">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="sandmass_01">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="sandmass_02">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="settling_vel">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="sustr">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="svstr">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="temp">
+  <attribute name="standard_name" type="String" value="sea_water_potential_temperature"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="tke">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="u">
+  <attribute name="standard_name" type="String" value="x_sea_water_velocity"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="ubar">
+  <attribute name="standard_name" type="String" value="barotropic_x_sea_water_velocity"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="False"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="v">
+  <attribute name="standard_name" type="String" value="y_sea_water_velocity"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="vbar">
+  <attribute name="standard_name" type="String" value="barotropic_y_sea_water_velocity"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="False"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="zeta">
+  <attribute name="standard_name" type="String" value="sea_surface_height_above_datum"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="content_coverage_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+
+<variable name="ocean_time">
+  <attribute name="standard_name" type="String" value="time"/>
 </variable>
 
 <variable name="grid" type="int">

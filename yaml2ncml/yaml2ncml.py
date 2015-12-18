@@ -84,20 +84,70 @@ def add_var_atts(text, a):
 
     # Get a list of all variables more than 1D.
     vars = [var for var, vart in ncv.items() if vart.ndim > 1]
+
+
+#   identify all the rho, u and v vars
+
+    rho_vars = [var for var in vars if 'eta_rho' in
+                vart.dimensions and 'xi_rho' in vart.dimensions]
+    u_vars = [var for var in vars if 'eta_u' in
+                vart.dimensions and 'xi_u' in vart.dimensions]
+    v_vars = [var for var in vars if 'eta_v' in
+                vart.dimensions and 'xi_v' in vart.dimensions]
+
+
     vars_all = set(vars)
     vars_include = set(a['variables']['include'])
     vars_exclude = set(a['variables']['exclude'])
-    if a['variables']['exclude']:
-        vars = list(vars_all - vars_all.intersection(vars_exclude))
+
+#   include/exclude only variables that actually occur in variable list
+
+    vars_include = vars_all.intersection(vars_include)
+    vars_exclude = vars_all.intersection(vars_exclude)
+
+
+
+#   If there are variables excluded, exclude them and keep all rest.
+#   If no variables are excluded, take just the included variables
+#   If no variables are included or excluded, take all variables (leave
+#     list of variables unchanged)
+
+    if vars_exclude:
+        vars_display = vars_all - vars_all.intersection(vars_exclude) 
     else:
-        if a['variables']['include']:
-            vars = list(vars_all.intersection(vars_include))
-    rho_vars = [var for var, vart in ncv.items() if 'eta_rho' in
-                vart.dimensions and 'xi_rho' in vart.dimensions]
-    u_vars = [var for var, vart in ncv.items() if 'eta_u' in
-                vart.dimensions and 'xi_u' in vart.dimensions]
-    v_vars = [var for var, vart in ncv.items() if 'eta_v' in
-                vart.dimensions and 'xi_v' in vart.dimensions]
+        if vars_include:
+            vars_display = vars_all.intersection(vars_include) 
+        else:
+            vars_display = vars_all 
+
+#   remove some variables we never want (if they exist)
+    Tobc = set(['Tobc_in', 'Tobc_out'])
+    vars_display = vars_display - vars_display.intersection(Tobc)
+
+    vars_display = list(vars_display)
+
+# add the variable attributes: S-grid stuff, display=T|F, ...
+    for var in vars:
+        text += '<variable name="{:s}">\n'.format(var)
+        try:
+            text += str_att('standard_name',cf[var])
+        except:
+            pass
+        text += str_att('grid','grid')
+
+        if var in vars_display:
+            text += str_att('display','True')
+        else:
+            text += str_att('display','False')
+
+        text += str_att('content_coverage_type','modelResult')
+        if var in rho_vars:
+            text += str_att('location','face')
+        elif var in u_vars:
+            text += str_att('location','edge1')
+        elif var in v_vars:
+            text += str_att('location','edge2')
+        text += '</variable>\n\n'
 
 # write standard_name for time coordinate variable
     var = 'ocean_time'
@@ -110,21 +160,6 @@ def add_var_atts(text, a):
             pass
     
 
-    for var in vars:
-        text += '<variable name="{:s}">\n'.format(var)
-        try:
-            text += str_att('standard_name',cf[var])
-        except:
-            pass
-        text += str_att('grid','grid')
-        text += str_att('content_coverage_type','modelResult')
-        if var in rho_vars:
-            text += str_att('location','face')
-        elif var in u_vars:
-            text += str_att('location','edge1')
-        elif var in v_vars:
-            text += str_att('location','edge2')
-        text += '</variable>\n\n'
     return text
 
 def write_grid_var(text):
