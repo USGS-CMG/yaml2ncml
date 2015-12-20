@@ -11,8 +11,8 @@ before_install:
     - conda update --yes conda
     - travis_retry conda create --yes -n test $CONDA --file requirements.txt
     - source activate test
-    - travis_retry conda install --yes pytest
     - conda info -a
+    - conda install --yes --file requirements-dev.txt
 
 install:
     - python setup.py build
@@ -20,3 +20,4 @@ install:
 
 script:
     - cd yaml2ncml/tests && py.test
+    - find . -type f -name "*.py"|xargs flake8 --max-line-length=100
