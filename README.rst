@@ -100,3 +100,40 @@ Notes on the YAML file:
 
         exclude:
             - None
+
+
+Development
+-----------
+
+.. code:: bash
+
+  virtualenv yaml2ncml
+  cd yaml2ncml
+  source bin/activate
+  git clone https://github.com/USGS-CMG/yaml2ncml.git
+
+Running tests
+^^^^^^^^^^^^^
+
+.. code:: bash
+
+  # via distutils
+  python setup.py test
+  # manually
+  cd yaml2ncml/tests && py.test
+
+Code Conventions
+^^^^^^^^^^^^^^^^
+
+yaml2ncml code conventions are as per
+[PEP8](https://www.python.org/dev/peps/pep-0008)
+
+.. code:: bash
+
+  # manually
+  flake8 --max-line-length=100 <file.py>
+
+Issues
+------
+
+Issues are managed at https://github.com/USGS-CMG/yaml2ncml/issues

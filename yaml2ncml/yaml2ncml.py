@@ -25,6 +25,7 @@ Options:
   -v --version     Show version.
 """
 
+
 def str_att(name, value):
     if isinstance(value, list):
         value = ','.join(value)
@@ -35,8 +36,8 @@ def str_att(name, value):
 def header():
     text = '<?xml version="1.0" encoding="UTF-8"?>\n<netcdf xmlns='
     text += '"http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">\n'
-    text += str_att('Conventions','CF-1.6, SGRID-0.1, ACDD-1.3')
-    text += str_att('cdm_data_type','Grid')
+    text += str_att('Conventions', 'CF-1.6, SGRID-0.1, ACDD-1.3')
+    text += str_att('cdm_data_type', 'Grid')
     return text
 
 
@@ -44,13 +45,14 @@ def footer(text):
     text += '</netcdf>\n'
     return text
 
+
 def add_global_atts(text, a):
     d = a['dataset']
     for key, value in d.items():
         # Handle simple attribute pairs first.
         if key in ['id', 'license', 'summary', 'title', 'project',
                    'naming_authority', 'references', 'acknowledgments']:
-            text += str_att(key,value)
+            text += str_att(key, value)
         elif key in ['creator', 'publisher']:
             email = value.get("email", None)
             if email:
@@ -76,6 +78,7 @@ def add_global_atts(text, a):
                 text += str_att('_'.join([key, 'name']), name)
     return text
 
+
 def add_var_atts(text, a):
     ncfile = os.path.join(a['aggregation']['dir'],
                           a['aggregation']['sample_file'])
@@ -91,10 +94,9 @@ def add_var_atts(text, a):
     rho_vars = [var for var in vars if 'eta_rho' in
                 vart.dimensions and 'xi_rho' in vart.dimensions]
     u_vars = [var for var in vars if 'eta_u' in
-                vart.dimensions and 'xi_u' in vart.dimensions]
+              vart.dimensions and 'xi_u' in vart.dimensions]
     v_vars = [var for var in vars if 'eta_v' in
-                vart.dimensions and 'xi_v' in vart.dimensions]
-
+              vart.dimensions and 'xi_v' in vart.dimensions]
 
     vars_all = set(vars)
     vars_include = set(a['variables']['include'])
@@ -105,20 +107,18 @@ def add_var_atts(text, a):
     vars_include = vars_all.intersection(vars_include)
     vars_exclude = vars_all.intersection(vars_exclude)
 
-
-
 #   If there are variables excluded, exclude them and keep all rest.
 #   If no variables are excluded, take just the included variables
 #   If no variables are included or excluded, take all variables (leave
 #     list of variables unchanged)
 
     if vars_exclude:
-        vars_display = vars_all - vars_all.intersection(vars_exclude) 
+        vars_display = vars_all - vars_all.intersection(vars_exclude)
     else:
         if vars_include:
-            vars_display = vars_all.intersection(vars_include) 
+            vars_display = vars_all.intersection(vars_include)
         else:
-            vars_display = vars_all 
+            vars_display = vars_all
 
 #   remove some variables we never want (if they exist)
     Tobc = set(['Tobc_in', 'Tobc_out'])
@@ -130,23 +130,23 @@ def add_var_atts(text, a):
     for var in vars:
         text += '<variable name="{:s}">\n'.format(var)
         try:
-            text += str_att('standard_name',cf[var])
+            text += str_att('standard_name', cf[var])
         except:
             pass
-        text += str_att('grid','grid')
+        text += str_att('grid', 'grid')
 
         if var in vars_display:
-            text += str_att('display','True')
+            text += str_att('display', 'True')
         else:
-            text += str_att('display','False')
+            text += str_att('display', 'False')
 
-        text += str_att('content_coverage_type','modelResult')
+        text += str_att('content_coverage_type', 'modelResult')
         if var in rho_vars:
-            text += str_att('location','face')
+            text += str_att('location', 'face')
         elif var in u_vars:
-            text += str_att('location','edge1')
+            text += str_att('location', 'edge1')
         elif var in v_vars:
-            text += str_att('location','edge2')
+            text += str_att('location', 'edge2')
         text += '</variable>\n\n'
 
 # write standard_name for time coordinate variable
@@ -154,16 +154,16 @@ def add_var_atts(text, a):
     if var in ncv.keys():
         try:
             text += '\n<variable name="{:s}">\n'.format(var)
-            text += str_att('standard_name',cf[var]) 
+            text += str_att('standard_name', cf[var])
             text += '</variable>\n\n'
         except:
             pass
-    
 
     return text
 
+
 def write_grid_var(text):
-    grid_var="""<variable name="grid" type="int">
+    grid_var = """<variable name="grid" type="int">
         <attribute name="cf_role" value="grid_topology"/>
         <attribute name="topology_dimension" type="int" value="2"/>
         <attribute name="node_dimensions" value="xi_psi eta_psi"/>
@@ -180,10 +180,13 @@ def write_grid_var(text):
     text += grid_var
     return text
 
+
 def add_aggregation_scan(text, a):
     agg = a['aggregation']
-    text += '<aggregation dimName="{:s}" type="joinExisting">\n'.format(agg['time_var'])
-    text += '<scan location="{:s}" regExp="{:s}" subdirs="false"/>\n</aggregation>\n'.format(agg['dir'],agg['pattern'])
+    text += '<aggregation dimName="{:s}" type="joinExisting">\n'.format(
+        agg['time_var'])
+    text += '<scan location="{:s}" regExp="{:s}" subdirs="false"/>\n</aggregation>\n'.format(
+        agg['dir'], agg['pattern'])
     return text
 
 # Map ROMS variables to CF standard_names.
@@ -197,6 +200,7 @@ cf = dict(ocean_time='time',
           vbar='barotropic_y_sea_water_velocity',
           Hwave='sea_surface_wave_significant_height')
 
+
 def build(yml):
     text = header()
     text = add_global_atts(text, yml)
@@ -205,6 +209,7 @@ def build(yml):
     text = add_aggregation_scan(text, yml)
     text = footer(text)
     return text
+
 
 def main():
     args = docopt(__doc__, version='0.1.0')
