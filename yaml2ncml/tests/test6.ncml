@@ -136,35 +136,35 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge1"/>
 </variable>
 
 <variable name="bedload_Usand_02">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge1"/>
 </variable>
 
 <variable name="bedload_Vsand_01">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge2"/>
 </variable>
 
 <variable name="bedload_Vsand_02">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge2"/>
 </variable>
 
 <variable name="bustr">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge1"/>
 </variable>
 
 <variable name="bustrc">
@@ -192,7 +192,7 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge2"/>
 </variable>
 
 <variable name="bvstrc">
@@ -276,7 +276,6 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
 </variable>
 
 <variable name="lat_rho">
@@ -290,21 +289,20 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge1"/>
 </variable>
 
 <variable name="lat_v">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge2"/>
 </variable>
 
 <variable name="lon_psi">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
 </variable>
 
 <variable name="lon_rho">
@@ -318,21 +316,20 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge1"/>
 </variable>
 
 <variable name="lon_v">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge2"/>
 </variable>
 
 <variable name="mask_psi">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
 </variable>
 
 <variable name="mask_rho">
@@ -346,14 +343,14 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge1"/>
 </variable>
 
 <variable name="mask_v">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge2"/>
 </variable>
 
 <variable name="pm">
@@ -452,14 +449,14 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge1"/>
 </variable>
 
 <variable name="svstr">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge2"/>
 </variable>
 
 <variable name="temp">
@@ -482,7 +479,7 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge1"/>
 </variable>
 
 <variable name="ubar">
@@ -490,7 +487,7 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="False"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge1"/>
 </variable>
 
 <variable name="v">
@@ -498,7 +495,7 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge2"/>
 </variable>
 
 <variable name="vbar">
@@ -506,7 +503,7 @@
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="False"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
-  <attribute name="location" type="String" value="face"/>
+  <attribute name="location" type="String" value="edge2"/>
 </variable>
 
 <variable name="zeta">
