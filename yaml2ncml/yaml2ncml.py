@@ -92,11 +92,11 @@ def add_var_atts(text, a):
 #   identify all the rho, u and v vars
 
     rho_vars = [var for var in vars if 'eta_rho' in
-                vart.dimensions and 'xi_rho' in vart.dimensions]
+                ncv[var].dimensions and 'xi_rho' in ncv[var].dimensions]
     u_vars = [var for var in vars if 'eta_u' in
-              vart.dimensions and 'xi_u' in vart.dimensions]
+              ncv[var].dimensions and 'xi_u' in ncv[var].dimensions]
     v_vars = [var for var in vars if 'eta_v' in
-              vart.dimensions and 'xi_v' in vart.dimensions]
+              ncv[var].dimensions and 'xi_v' in ncv[var].dimensions]
 
     vars_all = set(vars)
     vars_include = set(a['variables']['include'])
