@@ -12,9 +12,8 @@ Install it using pip or conda.
 
 .. code:: bash
 
-    pip install yaml2ncml
-    # or
-    conda install -c https://conda.binstar.org/ioos yaml2ncml
+
+    conda install -c conda-forge yaml2ncml
 
 The user must create a YAML config file (see the example below) and run:
 
