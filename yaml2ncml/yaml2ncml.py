@@ -149,6 +149,9 @@ def add_var_atts(text, a):
         except:
             pass
         text += str_att('grid', 'grid')
+        
+        if 'Nbed' in ncv[var].dimensions:
+            text += str_att('coordinates', ncv[var].coordinates+' Nbed')
 
         if var in vars_display:
             text += str_att('display', 'True')
