@@ -191,9 +191,9 @@ def _compose(attrs, name):
 
 templ = Template("""<?xml version="1.0" encoding="UTF-8"?>
 <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
-{% for name, value in global_attrs | dictsort %}  <attribute name="{{ name }}" type="String" value="{{ value }}"/>
+{% for name, value in global_attrs | dictsort %}  <attribute name="{{ name }}" type="String" value="{% if value is string %}{{ value }}{% else %}{{ value|join(',') }}{%endif%}"/>
 {% endfor %}
-</netcdf>""")  # noqa
+""")  # noqa
 
 
 def build(yml):
