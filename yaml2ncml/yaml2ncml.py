@@ -3,10 +3,13 @@ from __future__ import (absolute_import, division, print_function)
 import os
 import sys
 
+from collections import OrderedDict
+
 import netCDF4
 import ruamel.yaml as yaml
 
 from docopt import docopt
+from jinja2 import Template
 
 __doc__ = """
 Generate ncml based on a yaml file.
@@ -29,61 +32,16 @@ Options:
 """
 
 
-def str_att(name, value):
+def attribute_name(name, value):
     if isinstance(value, list):
         value = ','.join(value)
     msg = '  <attribute name="{:s}" type="String" value="{:s}"/>\n'
     return msg.format(name, value)
 
 
-def header():
-    text = '<?xml version="1.0" encoding="UTF-8"?>\n<netcdf xmlns='
-    text += '"http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">\n'
-    text += str_att('Conventions', 'CF-1.6, SGRID-0.1, ACDD-1.3')
-    text += str_att('cdm_data_type', 'Grid')
-    return text
-
-
-def footer(text):
-    text += '</netcdf>\n'
-    return text
-
-
-def add_global_atts(text, a):
-    d = a['dataset']
-    for key, value in d.items():
-        # Handle simple attribute pairs first.
-        if key in ['id', 'license', 'summary', 'title', 'project',
-                   'naming_authority', 'references', 'acknowledgments']:
-            text += str_att(key, value)
-        elif key in ['creator', 'publisher']:
-            email = value.get("email", None)
-            if email:
-                text += str_att('_'.join([key, 'email']), email)
-            url = value.get("url", None)
-            if url:
-                text += str_att('_'.join([key, 'url']), url)
-            name = value.get("name", None)
-            if name:
-                text += str_att('_'.join([key, 'name']), name)
-        elif key in ['contributor']:
-            role = value.get("role", None)
-            text += str_att('_'.join([key, 'role']), role)
-            email = value.get("email", None)
-            if email:
-                text += str_att('_'.join([key, 'email']), email)
-            url = value.get("url", None)
-            if url:
-                text += str_att('_'.join([key, 'url']), url)
-            name = value.get("name", None)
-            if name:
-                text += str_att('_'.join([key, 'name']), name)
-    return text
-
-
-def add_bed_coord(text, a):
-    ncfile = os.path.join(a['aggregation']['dir'],
-                          a['aggregation']['sample_file'])
+def add_bed_coord(text, yml):
+    ncfile = os.path.join(yml['aggregation']['dir'],
+                          yml['aggregation']['sample_file'])
     nc = netCDF4.Dataset(ncfile)
     bed_coord_var = """<variable name="Nbed" shape="Nbed" type="double">
       <attribute name="long_name" value="pseudo coordinate at seabed points"/>
@@ -97,9 +55,9 @@ def add_bed_coord(text, a):
     return text
 
 
-def add_var_atts(text, a):
-    ncfile = os.path.join(a['aggregation']['dir'],
-                          a['aggregation']['sample_file'])
+def add_var_atts(text, yml):
+    ncfile = os.path.join(yml['aggregation']['dir'],
+                          yml['aggregation']['sample_file'])
     nc = netCDF4.Dataset(ncfile)
     ncv = nc.variables
 
@@ -117,8 +75,8 @@ def add_var_atts(text, a):
               ncv[var].dimensions and 'xi_v' in ncv[var].dimensions]
 
     vars_all = set(vars)
-    vars_include = set(a['variables']['include'])
-    vars_exclude = set(a['variables']['exclude'])
+    vars_include = set(yml['variables']['include'])
+    vars_exclude = set(yml['variables']['exclude'])
 
 #   include/exclude only variables that actually occur in variable list
 
@@ -148,26 +106,26 @@ def add_var_atts(text, a):
     for var in vars:
         text += '<variable name="{:s}">\n'.format(var)
         try:
-            text += str_att('standard_name', cf[var])
+            text += attribute_name('standard_name', cf[var])
         except:
             pass
-        text += str_att('grid', 'grid')
+        text += attribute_name('grid', 'grid')
 
         if 'Nbed' in ncv[var].dimensions:
-            text += str_att('coordinates', ncv[var].coordinates+' Nbed')
+            text += attribute_name('coordinates', ncv[var].coordinates+' Nbed')
 
         if var in vars_display:
-            text += str_att('display', 'True')
+            text += attribute_name('display', 'True')
         else:
-            text += str_att('display', 'False')
+            text += attribute_name('display', 'False')
 
-        text += str_att('content_coverage_type', 'modelResult')
+        text += attribute_name('content_coverage_type', 'modelResult')
         if var in rho_vars:
-            text += str_att('location', 'face')
+            text += attribute_name('location', 'face')
         elif var in u_vars:
-            text += str_att('location', 'edge1')
+            text += attribute_name('location', 'edge1')
         elif var in v_vars:
-            text += str_att('location', 'edge2')
+            text += attribute_name('location', 'edge2')
         text += '</variable>\n\n'
 
 # write standard_name for time coordinate variable
@@ -175,7 +133,7 @@ def add_var_atts(text, a):
     if var in ncv.keys():
         try:
             text += '\n<variable name="{:s}">\n'.format(var)
-            text += str_att('standard_name', cf[var])
+            text += attribute_name('standard_name', cf[var])
             text += '</variable>\n\n'
         except:
             pass
@@ -203,8 +161,8 @@ def write_grid_var(text):
     return text
 
 
-def add_aggregation_scan(text, a):
-    agg = a['aggregation']
+def add_aggregation_scan(text, yml):
+    agg = yml['aggregation']
     text += '<aggregation dimName="{:s}" type="joinExisting">\n'.format(
         agg['time_var'])
     text += '<scan location="{:s}" regExp="{:s}" subdirs="false"/>\n</aggregation>\n'.format(agg['dir'], agg['pattern'])  # noqa
@@ -224,14 +182,42 @@ cf = dict(ocean_time='time',
           bed_thickness='sediment_bed_thickness')
 
 
+def _compose(attrs, name):
+    return OrderedDict(
+        ('_'.join([name, key]), attrs[name].get(key))
+        for key in attrs[name].keys() if attrs[name].get(key)
+    )
+
+
+templ = Template("""<?xml version="1.0" encoding="UTF-8"?>
+<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+{% for name, value in global_attrs | dictsort %}  <attribute name="{{ name }}" type="String" value="{{ value }}"/>
+{% endfor %}
+</netcdf>""")  # noqa
+
+
 def build(yml):
-    text = header()
-    text = add_global_atts(text, yml)
+    global_attrs = OrderedDict([('Conventions', 'CF-1.6, SGRID-0.1, ACDD-1.3'),
+                                ('cdm_data_type', 'Grid')])
+
+    attrs = yml['dataset']
+    # Simple attribute.
+    simple_pairs = ['id', 'title', 'summary', 'naming_authority', 'project',
+                    'license', 'references', 'acknowledgments']
+    global_attrs.update(OrderedDict((key, attrs.get(key))
+                                    for key in simple_pairs if attrs.get(key)))
+    # Composed attributes.
+    global_attrs.update(_compose(attrs, name='creator'))
+    global_attrs.update(_compose(attrs, name='publisher'))
+    global_attrs.update(_compose(attrs, name='contributor'))
+
+    text = templ.render(global_attrs=global_attrs)
+
     text = add_var_atts(text, yml)
     text = write_grid_var(text)
     text = add_bed_coord(text, yml)
     text = add_aggregation_scan(text, yml)
-    text = footer(text)
+    text += '</netcdf>\n'
     return text
 
 
