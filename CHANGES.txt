@@ -1,12 +1,15 @@
+0.6.0
+~~~~~
+- Python 3 support.
+
 0.5.0
 ~~~~~
-- allow variables that depend on `Nbed` to be displayed by `ncWMS` by constructing a psuedo-depth coordinate.
+- allow variables that depend on `Nbed` to be displayed by `ncWMS` by constructing a pseudo-depth coordinate.
 
 0.4.0
 ~~~~~
-- the list of `exclude` and `include` variables in the YAML now just control whether the 'display' attribute is 'true' or 'false'.  This means that all variables are still available on THREDDS.   Portals can use the 'display' attribute to show variables or not. 
+- the list of `exclude` and `include` variables in the YAML now just control whether the 'display' attribute is 'true' or 'false'.  This means that all variables are still available on THREDDS.   Portals can use the 'display' attribute to show variables or not.
 
 0.3.0
 ~~~~~
-- the list of `exclude` and `include` variables in the YAML control whether the variables are retained, or removed via NcML. 
-
+- the list of `exclude` and `include` variables in the YAML control whether the variables are retained, or removed via NcML.

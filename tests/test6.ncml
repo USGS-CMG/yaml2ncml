@@ -2,23 +2,23 @@
 <netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
   <attribute name="Conventions" type="String" value="CF-1.6, SGRID-0.1, ACDD-1.3"/>
   <attribute name="cdm_data_type" type="String" value="Grid"/>
-  <attribute name="publisher_email" type="String" value="tkalra@usgs.gov"/>
-  <attribute name="publisher_url" type="String" value="http://www.usgs.gov"/>
-  <attribute name="publisher_name" type="String" value="Tarandeep Kalra"/>
-  <attribute name="license" type="String" value="The data may be used and redistributed for free but is not intended for legal use, since it may contain inaccuracies. Neither the data Contributor, nor the United States Government, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness, of this information."/>
+  <attribute name="id" type="String" value="USGS_COAWST_MVCO_CBLAST_Ripples_SWAN_40m"/>
+  <attribute name="title" type="String" value="USGS-CMG-COAWST Model: CBLAST2007 Ripples with SWAN-40m res"/>
+  <attribute name="summary" type="String" value="Simulation of hydrodynamics and bottom stress south of Marthas Vineyard, MA using the COAWST modeling system.  These results are from the 40m inner nest of a four-level nested simulation."/>
+  <attribute name="naming_authority" type="String" value="gov.usgs.cmg"/>
+  <attribute name="project" type="String" value="CMG_Portal,Sandy_Portal"/>
   <attribute name="creator_email" type="String" value="nganju@usgs.gov"/>
   <attribute name="creator_url" type="String" value="http://water.usgs.gov/fluxes"/>
   <attribute name="creator_name" type="String" value="Neil Ganju"/>
-  <attribute name="title" type="String" value="USGS-CMG-COAWST Model: CBLAST2007 Ripples with SWAN-40m res"/>
-  <attribute name="summary" type="String" value="Simulation of hydrodynamics and bottom stress south of Marthas Vineyard, MA using the COAWST modeling system.  These results are from the 40m inner nest of a four-level nested simulation."/>
-  <attribute name="project" type="String" value="CMG_Portal,Sandy_Portal"/>
-  <attribute name="references" type="String" value="http://www.whoi.edu/science/AOPE/dept/CBLASTmain.html,http://water.usgs.gov/fluxes/mvco.html,doi:10.1029/2011JC007035"/>
+  <attribute name="publisher_email" type="String" value="tkalra@usgs.gov"/>
+  <attribute name="publisher_url" type="String" value="http://www.usgs.gov"/>
+  <attribute name="publisher_name" type="String" value="Tarandeep Kalra"/>
   <attribute name="contributor_role" type="String" value="advisor"/>
   <attribute name="contributor_email" type="String" value="rsignell@usgs.gov"/>
   <attribute name="contributor_url" type="String" value="http://profile.usgs.gov/rsignell"/>
   <attribute name="contributor_name" type="String" value="Rich Signell"/>
-  <attribute name="id" type="String" value="USGS_COAWST_MVCO_CBLAST_Ripples_SWAN_40m"/>
-  <attribute name="naming_authority" type="String" value="gov.usgs.cmg"/>
+  <attribute name="license" type="String" value="The data may be used and redistributed for free but is not intended for legal use, since it may contain inaccuracies. Neither the data Contributor, nor the United States Government, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness, of this information."/>
+  <attribute name="references" type="String" value="http://www.whoi.edu/science/AOPE/dept/CBLASTmain.html,http://water.usgs.gov/fluxes/mvco.html,doi:10.1029/2011JC007035"/>
 <variable name="Dwave">
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
@@ -539,7 +539,7 @@
         <attribute name="edge2_coordinates" value="lon_v lat_v"/>
         <attribute name="vertical_dimensions" value="s_rho: s_w (padding: none)"/>
     </variable>
- <variable name="Nbed" shape="Nbed" type="double">
+<variable name="Nbed" shape="Nbed" type="double">
       <attribute name="long_name" value="pseudo coordinate at seabed points"/>
       <attribute name="standard_name" value="ocean_sigma_coordinate"/>
       <attribute name="positive" value="up"/>
