@@ -119,7 +119,9 @@
 </variable>
 
 <variable name="bed_thickness">
+  <attribute name="standard_name" type="String" value="sediment_bed_thickness"/>
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="coordinates" type="String" value="lon_rho lat_rho ocean_time Nbed"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
@@ -412,6 +414,7 @@
 
 <variable name="sandfrac_01">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="coordinates" type="String" value="lon_rho lat_rho ocean_time Nbed"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
@@ -419,6 +422,7 @@
 
 <variable name="sandfrac_02">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="coordinates" type="String" value="lon_rho lat_rho ocean_time Nbed"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
@@ -426,6 +430,7 @@
 
 <variable name="sandmass_01">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="coordinates" type="String" value="lon_rho lat_rho ocean_time Nbed"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
@@ -433,6 +438,7 @@
 
 <variable name="sandmass_02">
   <attribute name="grid" type="String" value="grid"/>
+  <attribute name="coordinates" type="String" value="lon_rho lat_rho ocean_time Nbed"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="content_coverage_type" type="String" value="modelResult"/>
   <attribute name="location" type="String" value="face"/>
@@ -532,6 +538,13 @@
         <attribute name="edge1_coordinates" value="lon_u lat_u"/>
         <attribute name="edge2_coordinates" value="lon_v lat_v"/>
         <attribute name="vertical_dimensions" value="s_rho: s_w (padding: none)"/>
+    </variable>
+ <variable name="Nbed" shape="Nbed" type="double">
+      <attribute name="long_name" value="pseudo coordinate at seabed points"/>
+      <attribute name="standard_name" value="ocean_sigma_coordinate"/>
+      <attribute name="positive" value="up"/>
+      <attribute name="formula_terms" value="sigma: Nbed eta: zeta depth: h"/>
+      <values start="-1.0" increment="-0.01"/>
     </variable>
  <aggregation dimName="ocean_time" type="joinExisting">
 <scan location="data/" regExp=".*test_nc4_[0-9]{4}\.nc$" subdirs="false"/>
