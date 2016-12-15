@@ -78,7 +78,22 @@ def add_global_atts(text, a):
                 text += str_att('_'.join([key, 'name']), name)
     return text
 
-
+def add_bed_coord(text, a):
+    ncfile = os.path.join(a['aggregation']['dir'],
+                          a['aggregation']['sample_file'])
+    nc = netCDF4.Dataset(ncfile)
+    bed_coord_var = """<variable name="Nbed" shape="Nbed" type="double">
+      <attribute name="long_name" value="pseudo coordinate at seabed points"/>
+      <attribute name="standard_name" value="ocean_sigma_coordinate"/>
+      <attribute name="positive" value="up"/>
+      <attribute name="formula_terms" value="sigma: Nbed eta: zeta depth: h"/>
+      <values start="-1.0" increment="-0.01"/>
+    </variable>\n """
+    if 'Nbed' in nc.dimensions.keys():
+        text += bed_coord_var
+    return text
+        
+    
 def add_var_atts(text, a):
     ncfile = os.path.join(a['aggregation']['dir'],
                           a['aggregation']['sample_file'])
@@ -134,6 +149,9 @@ def add_var_atts(text, a):
         except:
             pass
         text += str_att('grid', 'grid')
+        
+        if 'Nbed' in ncv[var].dimensions:
+            text += str_att('coordinates', ncv[var].coordinates+' Nbed')
 
         if var in vars_display:
             text += str_att('display', 'True')
@@ -159,6 +177,7 @@ def add_var_atts(text, a):
         except:
             pass
 
+    nc.close()
     return text
 
 
@@ -198,7 +217,8 @@ cf = dict(ocean_time='time',
           v='y_sea_water_velocity',
           ubar='barotropic_x_sea_water_velocity',
           vbar='barotropic_y_sea_water_velocity',
-          Hwave='sea_surface_wave_significant_height')
+          Hwave='sea_surface_wave_significant_height',
+          bed_thickness='sediment_bed_thickness')
 
 
 def build(yml):
@@ -206,6 +226,7 @@ def build(yml):
     text = add_global_atts(text, yml)
     text = add_var_atts(text, yml)
     text = write_grid_var(text)
+    text = add_bed_coord(text, yml)
     text = add_aggregation_scan(text, yml)
     text = footer(text)
     return text
