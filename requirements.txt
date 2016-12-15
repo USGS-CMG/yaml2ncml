@@ -1,3 +1,3 @@
-PyYAML
+ruamel.yaml
 docopt
 netCDF4

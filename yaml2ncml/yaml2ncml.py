@@ -1,7 +1,10 @@
+from __future__ import (absolute_import, division, print_function)
+
 import os
 import sys
-import yaml
+
 import netCDF4
+import ruamel.yaml as yaml
 
 from docopt import docopt
 
@@ -65,8 +68,7 @@ def add_global_atts(text, a):
                 text += str_att('_'.join([key, 'name']), name)
         elif key in ['contributor']:
             role = value.get("role", None)
-            if email:
-                text += str_att('_'.join([key, 'role']), role)
+            text += str_att('_'.join([key, 'role']), role)
             email = value.get("email", None)
             if email:
                 text += str_att('_'.join([key, 'email']), email)
@@ -77,6 +79,7 @@ def add_global_atts(text, a):
             if name:
                 text += str_att('_'.join([key, 'name']), name)
     return text
+
 
 def add_bed_coord(text, a):
     ncfile = os.path.join(a['aggregation']['dir'],
@@ -92,8 +95,8 @@ def add_bed_coord(text, a):
     if 'Nbed' in nc.dimensions.keys():
         text += bed_coord_var
     return text
-        
-    
+
+
 def add_var_atts(text, a):
     ncfile = os.path.join(a['aggregation']['dir'],
                           a['aggregation']['sample_file'])
@@ -149,7 +152,7 @@ def add_var_atts(text, a):
         except:
             pass
         text += str_att('grid', 'grid')
-        
+
         if 'Nbed' in ncv[var].dimensions:
             text += str_att('coordinates', ncv[var].coordinates+' Nbed')
 
@@ -195,7 +198,7 @@ def write_grid_var(text):
         <attribute name="edge1_coordinates" value="lon_u lat_u"/>
         <attribute name="edge2_coordinates" value="lon_v lat_v"/>
         <attribute name="vertical_dimensions" value="s_rho: s_w (padding: none)"/>
-    </variable>\n """
+    </variable>\n"""  # noqa
     text += grid_var
     return text
 
@@ -204,9 +207,9 @@ def add_aggregation_scan(text, a):
     agg = a['aggregation']
     text += '<aggregation dimName="{:s}" type="joinExisting">\n'.format(
         agg['time_var'])
-    text += '<scan location="{:s}" regExp="{:s}" subdirs="false"/>\n</aggregation>\n'.format(
-        agg['dir'], agg['pattern'])
+    text += '<scan location="{:s}" regExp="{:s}" subdirs="false"/>\n</aggregation>\n'.format(agg['dir'], agg['pattern'])  # noqa
     return text
+
 
 # Map ROMS variables to CF standard_names.
 cf = dict(ocean_time='time',
@@ -233,12 +236,12 @@ def build(yml):
 
 
 def main():
-    args = docopt(__doc__, version='0.1.0')
+    args = docopt(__doc__, version='0.6.0')
     fname = args.get('INFILE')
     fout = args.get('--output', None)
 
     with open(fname, 'r') as stream:
-        yml = yaml.safe_load(stream)
+        yml = yaml.load(stream, Loader=yaml.RoundTripLoader)
 
     text = build(yml)
 

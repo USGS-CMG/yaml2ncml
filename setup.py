@@ -28,11 +28,13 @@ def extract_version():
                 break
     return version
 
+
 rootpath = os.path.abspath(os.path.dirname(__file__))
 
 
 def read(*parts):
     return open(os.path.join(rootpath, *parts), 'r').read()
+
 
 long_description = '{}\n{}'.format(read('README.rst'), read('CHANGES.txt'))
 LICENSE = read('LICENSE.txt')
@@ -58,6 +60,7 @@ setup(name='yaml2ncml',
       classifiers=['Development Status :: 4 - Beta',
                    'Programming Language :: Python :: 2.7',
                    'Programming Language :: Python :: 3.4',
+                   'Programming Language :: Python :: 3.5',
                    'License :: OSI Approved :: MIT License'],
       tests_require=['pytest'],
       cmdclass=dict(test=PyTest),
