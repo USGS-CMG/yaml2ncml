@@ -5,7 +5,7 @@ import tempfile
 
 
 def test_call():
-    output = subprocess.check_output(['yaml2ncml', 'roms.yaml'])
+    output = subprocess.check_output(['yaml2ncml', 'roms_0.yaml'])
     with open('base_roms_test.ncml') as f:
         expected = f.read()
     assert output.decode() == expected
@@ -14,7 +14,7 @@ def test_call():
 def test_save_file():
     outfile = tempfile.mktemp(suffix='.ncml')
     subprocess.call(['yaml2ncml',
-                     'roms.yaml',
+                     'roms_0.yaml',
                      '--output={}'.format(outfile)])
     with open('base_roms_test.ncml') as f:
         expected = f.read()

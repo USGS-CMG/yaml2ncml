@@ -7,16 +7,16 @@
   <attribute name="summary" type="String" value="Simulation of hydrodynamics and bottom stress south of Marthas Vineyard, MA using the COAWST modeling system.  These results are from the 40m inner nest of a four-level nested simulation."/>
   <attribute name="naming_authority" type="String" value="gov.usgs.cmg"/>
   <attribute name="project" type="String" value="CMG_Portal,Sandy_Portal"/>
-  <attribute name="creator_email" type="String" value="nganju@usgs.gov"/>
+  <attribute name="creator_email" type="String" value="my@email.net"/>
   <attribute name="creator_url" type="String" value="http://water.usgs.gov/fluxes"/>
-  <attribute name="creator_name" type="String" value="Neil Ganju"/>
-  <attribute name="publisher_email" type="String" value="tkalra@usgs.gov"/>
+  <attribute name="creator_name" type="String" value="My Name"/>
+  <attribute name="publisher_email" type="String" value="his@email.net"/>
   <attribute name="publisher_url" type="String" value="http://www.usgs.gov"/>
-  <attribute name="publisher_name" type="String" value="Tarandeep Kalra"/>
+  <attribute name="publisher_name" type="String" value="His Name"/>
   <attribute name="contributor_role" type="String" value="advisor"/>
-  <attribute name="contributor_email" type="String" value="rsignell@usgs.gov"/>
-  <attribute name="contributor_url" type="String" value="http://profile.usgs.gov/rsignell"/>
-  <attribute name="contributor_name" type="String" value="Rich Signell"/>
+  <attribute name="contributor_email" type="String" value="another@person.net"/>
+  <attribute name="contributor_url" type="String" value="http://profile.usgs.gov/person"/>
+  <attribute name="contributor_name" type="String" value="Another Person"/>
   <attribute name="license" type="String" value="The data may be used and redistributed for free but is not intended for legal use, since it may contain inaccuracies. Neither the data Contributor, nor the United States Government, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness, of this information."/>
   <attribute name="references" type="String" value="http://www.whoi.edu/science/AOPE/dept/CBLASTmain.html,http://water.usgs.gov/fluxes/mvco.html,doi:10.1029/2011JC007035"/>
 <variable name="Dwave">
