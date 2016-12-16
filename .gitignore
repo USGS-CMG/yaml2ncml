@@ -1,4 +1,5 @@
 .cache
 *.pyc
 *.pyo
+dist
 yaml2ncml.egg-info
