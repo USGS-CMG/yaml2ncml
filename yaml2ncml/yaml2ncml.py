@@ -6,6 +6,7 @@ import sys
 import netCDF4
 import ruamel.yaml as yaml
 
+from six import raise_from
 from docopt import docopt
 
 __all__ = [
@@ -39,7 +40,7 @@ def str_att(name, value):
         try:
             value = ','.join(value)
         except TypeError as e:
-            raise ValueError('Expected `str` got {!r}'.format(value)) from e
+            raise_from(ValueError('Expected `str` got {!r}'.format(value)), e)
     msg = '  <attribute name="{:s}" type="String" value="{:s}"/>\n'
     return msg.format(name, value)
 
