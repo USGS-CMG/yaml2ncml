@@ -8,6 +8,11 @@ import ruamel.yaml as yaml
 
 from docopt import docopt
 
+__all__ = [
+    'main',
+    'build'
+    ]
+
 __doc__ = """
 Generate ncml based on a yaml file.
 
@@ -31,7 +36,10 @@ Options:
 
 def str_att(name, value):
     if isinstance(value, list):
-        value = ','.join(value)
+        try:
+            value = ','.join(value)
+        except TypeError as e:
+            raise ValueError('Expected `str` got {!r}'.format(value)) from e
     msg = '  <attribute name="{:s}" type="String" value="{:s}"/>\n'
     return msg.format(name, value)
 
