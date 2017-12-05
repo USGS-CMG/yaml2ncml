@@ -211,17 +211,17 @@ def add_aggregation_scan(text, a):
     return text
 
 
-# Map ROMS variables to CF standard_names.
+# Map ROMS variables to CF standard_names. 
 cf = dict(ocean_time='time',
           zeta='sea_surface_height_above_datum',
           temp='sea_water_potential_temperature',
           salt='sea_water_salinity',
-          u='x_sea_water_velocity',
-          v='y_sea_water_velocity',
-          ubar='barotropic_x_sea_water_velocity',
-          vbar='barotropic_y_sea_water_velocity',
+          u='sea_water_x_velocity',
+          v='sea_water_y_velocity',
+          ubar='barotropic_sea_water_x_velocity',
+          vbar='barotropic_sea_water_y_velocity',
           Hwave='sea_surface_wave_significant_height',
-          bed_thickness='sediment_bed_thickness')
+          bed_thickness='sediment_bed_thickness') # sediment_bed_thickness is not in CF standard_names
 
 
 def build(yml):
