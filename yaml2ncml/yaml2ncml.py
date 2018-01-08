@@ -161,7 +161,7 @@ def add_var_atts(text, a):
         else:
             text += str_att('display', 'False')
 
-        text += str_att('content_coverage_type', 'modelResult')
+        text += str_att('coverage_content_type', 'modelResult')
         if var in rho_vars:
             text += str_att('location', 'face')
         elif var in u_vars:
