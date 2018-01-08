@@ -213,7 +213,7 @@ def add_aggregation_scan(text, a):
 
 # Map ROMS variables to CF standard_names. 
 cf = dict(ocean_time='time',
-          zeta='sea_surface_height_above_datum',
+          zeta='sea_surface_height_above_geopotential_datum',
           temp='sea_water_potential_temperature',
           salt='sea_water_salinity',
           u='sea_water_x_velocity',
