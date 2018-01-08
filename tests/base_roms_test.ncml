@@ -481,7 +481,7 @@
 </variable>
 
 <variable name="u">
-  <attribute name="standard_name" type="String" value="x_sea_water_velocity"/>
+  <attribute name="standard_name" type="String" value="sea_water_x_velocity"/>
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="coverage_content_type" type="String" value="modelResult"/>
@@ -489,7 +489,7 @@
 </variable>
 
 <variable name="ubar">
-  <attribute name="standard_name" type="String" value="barotropic_x_sea_water_velocity"/>
+  <attribute name="standard_name" type="String" value="barotropic_sea_water_x_velocity"/>
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="False"/>
   <attribute name="coverage_content_type" type="String" value="modelResult"/>
@@ -497,7 +497,7 @@
 </variable>
 
 <variable name="v">
-  <attribute name="standard_name" type="String" value="y_sea_water_velocity"/>
+  <attribute name="standard_name" type="String" value="sea_water_y_velocity"/>
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="coverage_content_type" type="String" value="modelResult"/>
@@ -505,7 +505,7 @@
 </variable>
 
 <variable name="vbar">
-  <attribute name="standard_name" type="String" value="barotropic_y_sea_water_velocity"/>
+  <attribute name="standard_name" type="String" value="barotropic_sea_water_y_velocity"/>
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="False"/>
   <attribute name="coverage_content_type" type="String" value="modelResult"/>
@@ -513,7 +513,7 @@
 </variable>
 
 <variable name="zeta">
-  <attribute name="standard_name" type="String" value="sea_surface_height_above_datum"/>
+  <attribute name="standard_name" type="String" value="sea_surface_height_above_geopotential_datum"/>
   <attribute name="grid" type="String" value="grid"/>
   <attribute name="display" type="String" value="True"/>
   <attribute name="coverage_content_type" type="String" value="modelResult"/>
