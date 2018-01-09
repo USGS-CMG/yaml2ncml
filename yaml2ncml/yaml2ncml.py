@@ -216,7 +216,8 @@ def add_aggregation_scan(text, a):
     agg = a['aggregation']
     text += '<aggregation dimName="{:s}" type="joinExisting">\n'.format(
         agg['time_var'])
-    text += '<scan location="{:s}" regExp="{:s}" subdirs="false"/>\n</aggregation>\n'.format(agg['dir'], agg['pattern'])  # noqa
+    text += '<scan location="{:s}" regExp="{:s}" subdirs="false"/>\n</aggregation>\n'\
+    .format(agg['dir'], agg['pattern'])  # noqa
     return text
 
 
@@ -230,7 +231,7 @@ cf = dict(ocean_time='time',
           ubar='barotropic_sea_water_x_velocity',
           vbar='barotropic_sea_water_y_velocity',
           Hwave='sea_surface_wave_significant_height',
-          bed_thickness='sediment_bed_thickness') # sediment_bed_thickness is not in CF standard_names
+          bed_thickness='sediment_bed_thickness')  #sediment_bed_thickness not in CF standard_names
 
 
 def build(yml):
