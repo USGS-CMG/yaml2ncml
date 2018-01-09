@@ -1,0 +1,56 @@
+dataset:
+    id: "USGS_COAWST_USE_SANDY"
+
+    title: "USGS New York Bight COAWST model for Hurricane Sandy, USE27 6km Nest (coarsest grid)"
+
+    summary: "Simulation of hydrodynamics, waves, bottom stress and sediment transport during Hurricane Sandy. These results are from the 6km lowest resolution nest of a three-level nested simulation."
+
+    naming_authority: "gov.usgs.cmg"
+
+    project:
+        - CMG_Portal
+        - Sandy_Portal
+
+    creator:
+        email: jdoe@email.net
+        name: John Doe
+        url:  https://jdoe.net
+
+    publisher:
+        email: jdoe@email.net
+        name: John Doe
+        url:  https://jdoe.net
+
+    license: "The data may be used and redistributed for free but is not intended for legal use, since it may contain inaccuracies. Neither the data Contributor, nor the United States Government, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness, of this information."
+
+    references:
+        - https://woodshole.er.usgs.gov/operations/modeling/COAWST
+        - DOI: 10.1002/2014GL061357
+
+    acknowledgements:
+        - USGS-CMGP
+
+variables:
+    include:
+        - h
+        - zeta
+        - temp
+        - salt
+        - u
+        - v
+        - ubar
+        - vbar
+        - Hwave
+        - Dwave
+        - Lwave
+        - bstrcwmax
+        - bed_thickness
+        - sand_03
+    exclude:
+        - none
+
+aggregation:
+    time_var: ocean_time
+    dir: .
+    sample_file: ocean_USE31_his_0001.nc
+    pattern: .*USE31_his.*_[0-9]{4}\.nc$
