@@ -63,7 +63,7 @@ def add_global_atts(text, a):
     for key, value in d.items():
         # Handle simple attribute pairs first.
         if key in ['id', 'license', 'summary', 'title', 'project',
-                   'naming_authority', 'references', 'acknowledgments']:
+                   'naming_authority', 'references', 'acknowledgment','keywords_vocabulary']:
             text += str_att(key, value)
         elif key in ['creator', 'publisher']:
             email = value.get("email", None)
@@ -75,6 +75,9 @@ def add_global_atts(text, a):
             name = value.get("name", None)
             if name:
                 text += str_att('_'.join([key, 'name']), name)
+            institution = value.get("institution", None)
+            if institution:
+                text += str_att('_'.join([key, 'institution']), institution)
         elif key in ['contributor']:
             role = value.get("role", None)
             text += str_att('_'.join([key, 'role']), role)
@@ -87,6 +90,19 @@ def add_global_atts(text, a):
             name = value.get("name", None)
             if name:
                 text += str_att('_'.join([key, 'name']), name)
+            institution = value.get("institution", None)
+            if institution:
+                text += str_att('_'.join([key, 'institution']), institution)
+        elif key in ['date']:
+            created = value.get("created", None)
+            if created:
+                text += str_att('_'.join([key, 'creation']), created)
+            modified = value.get("modified", None)
+            if modified:
+                text += str_att('_'.join([key, 'revision']), modified)
+            issued = value.get("issued", None)
+            if issued:
+                text += str_att('_'.join([key, 'publication']), issued)
     return text
 
 
