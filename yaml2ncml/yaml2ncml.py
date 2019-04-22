@@ -63,7 +63,7 @@ def add_global_atts(text, a):
     for key, value in d.items():
         # Handle simple attribute pairs first.
         if key in ['id', 'license', 'summary', 'title', 'project',
-                   'naming_authority', 'references', 'acknowledgment']:
+                   'naming_authority', 'references', 'acknowledgment','keywords_vocabulary']:
             text += str_att(key, value)
         elif key in ['creator', 'publisher']:
             email = value.get("email", None)
@@ -103,11 +103,6 @@ def add_global_atts(text, a):
             issued = value.get("issued", None)
             if issued:
                 text += str_att('_'.join([key, 'publication']), issued)
-        elif key in ['cdm_data_type']:
-            cdm_data_type = value.get("cdm_data_type", None)
-            if cdm_data_type:
-                text += str_att('_'.join([key, 'creation']), created)
-            text += str_att(key, value)
     return text
 
 
