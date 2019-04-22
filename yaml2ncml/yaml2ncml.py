@@ -63,7 +63,8 @@ def add_global_atts(text, a):
     for key, value in d.items():
         # Handle simple attribute pairs first.
         if key in ['id', 'license', 'summary', 'title', 'project',
-                   'naming_authority', 'references', 'acknowledgment','keywords_vocabulary']:
+                   'naming_authority', 'references', 
+                   'acknowledgment','keywords_vocabulary']:
             text += str_att(key, value)
         elif key in ['creator', 'publisher']:
             email = value.get("email", None)
