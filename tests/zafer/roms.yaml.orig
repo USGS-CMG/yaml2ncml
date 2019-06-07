@@ -1,0 +1,62 @@
+dataset:
+    id: "USGS_BBLEH_RUN071TRX"
+
+    title: "USGS Barnegat Bay Hydrodynamic Model for March-September 2012"
+
+    summary: "Simulation of hydrodynamic circulation in Barnegat Bay for the period from 03-01-2012 to 10-01-2012. The bathymetry of the model was based on the National Ocean Service Hydrographic Survey data, and updated with recent bathymetric measurements. At the landward end (western boundary), we specified point sources of freshwater in accordance with USGS streamflow measurements at 7 gauges, and a radiation boundary condition that allows tidal energy to propagate landward. On the seaward end, tidal water level and velocity amplitudes from the ADCIRC tidal constituents database for the North Atlantic were applied. These were supplemented by the subtidal water level and subtidal barotropic velocity from the ESPreSSO model, which covers the Mid-Atlantic Bight at 6 kilometer resolution. At the ocean boundary, a combination of Chapman, Flather, and gradient boundary conditions were used. Salinity and temperature was also supplied by the ESPreSSO model. A radiation condition with nudging on a 6-hour timescale for tracers allowed for relaxation of the model solution relative to the forcing data, which prevented sharp gradients at the seaward boundary and subsequent oscillations in the solution. At the ocean-atmosphere interface we applied meteorological forcing from North American Mesoscale Model. The bulk flux parameterization routine was used with 3-hour wind velocity, air pressure, long and shortwave radiation, relative humidity, and rain inputs. For more details on the model set up see Defne and Ganju, 2015. Reference: Defne, Zafer, and Ganju, N. K., 2015, Quantifying the residence time and flushing characteristics of a shallow, back-barrier estuary: application of hydrodynamic and particle tracking models, Estuaries and Coasts, 38, 1719-1734"
+
+    project:
+        - CMG_Portal
+#        - Sandy_Portal
+
+    creator:
+        email: zdefne@usgs.gov
+        name: Zafer Defne
+        institution: U.S. Geological Survey   # yaml2ncml shoould include this
+        url: https://www.usgs.gov/staff-profiles/zdefne
+
+    publisher:
+        email: zdefne@usgs.gov
+        name: Zafer Defne
+        institution: U.S. Geological Survey
+        url: https://www.usgs.gov/staff-profiles/zdefne
+
+    contributor:
+        role: principalInvestigator
+        email: nganju@usgs.gov
+        name: Neil Ganju
+        institution: U.S. Geological Survey
+        url: https://www.usgs.gov/staff-profiles/nganju
+
+    naming_authority:
+        - gov.usgs.cmgp.whsc
+    
+    keywords: "New Jersey, Regional Ocean Model (ROMS)"
+        
+    license: "The data may be used and redistributed for free but is not intended for legal use, since it may contain inaccuracies. Neither the data Contributor, nor the United States Government, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness, of this information."
+
+    references:
+        - http://woodshole.er.usgs.gov/project-pages/estuaries/
+        - http://woodshole.er.usgs.gov/operations/modeling/COAWST/
+    acknowledgements:
+        - USGS-CMGP
+
+variables:
+    include:
+        - zeta
+        - ubar
+        - vbar
+        - temp
+        - salt
+
+    exclude:
+        - u
+        - v
+        - w
+
+aggregation:
+    time_var: ocean_time
+    dir: his/
+    sample_file: his_bbleh_0001.nc
+    pattern: .*his_bbleh_[0-9]{4}\.nc$
+    
