@@ -78,7 +78,7 @@ def add_global_atts(text, a):
                 text += str_att('_'.join([key, 'name']), name)
             institution = value.get("institution", None)
             if institution:
-                text += str_att('_'.join([key, 'institution']), institution)
+                text += str_att(key, institution)
         elif key in ['contributor']:
             role = value.get("role", None)
             text += str_att('_'.join([key, 'role']), role)
