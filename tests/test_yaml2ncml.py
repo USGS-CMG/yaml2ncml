@@ -11,16 +11,17 @@ path = Path(__file__).parent.resolve()
 
 
 def test_call():
-    fname = str(path.joinpath("roms_0.yaml").resolve())
-    output = subprocess.check_output(["yaml2ncml", fname])
+    fname = str(path.joinpath("roms_0.yaml"))
+    output = subprocess.check_output(["yaml2ncml", fname]).decode()
+    output = [line.strip() for line in output.splitlines()]
     with path.joinpath("base_roms_test.ncml").open() as f:
-        expected = f.read()
-    assert output.decode() == expected
+        expected = [line.strip() for line in f.read().splitlines()]
+    assert output == expected
 
 
 def test_save_file():
     outfile = tempfile.mktemp(suffix=".ncml")
-    fname = str(path.joinpath("roms_0.yaml").resolve())
+    fname = str(path.joinpath("roms_0.yaml"))
     subprocess.call(["yaml2ncml", fname, f"--output={outfile}"])
     with path.joinpath("base_roms_test.ncml").open() as f:
         expected = f.read()
