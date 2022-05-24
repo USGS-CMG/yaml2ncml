@@ -547,6 +547,6 @@
       <values start="-1.0" increment="-0.01"/>
     </variable>
  <aggregation dimName="ocean_time" type="joinExisting">
-<scan location="data/" regExp=".*test_nc4_[0-9]{4}\.nc$" subdirs="false"/>
+<scan location="tests/data/" regExp=".*test_nc4_[0-9]{4}\.nc$" subdirs="false"/>
 </aggregation>
 </netcdf>
