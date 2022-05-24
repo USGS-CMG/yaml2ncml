@@ -36,7 +36,7 @@ roms.yaml
         title: "USGS-CMG-COAWST Model: CBLAST2007 Ripples with SWAN-40m res"
 
         summary: "Simulation of hydrodynamics and bottom stress south of Marthas Vineyard, MA using the COAWST modeling system.  These results are from the 40m inner nest of a four-level nested simulation."
-        
+
         project:
             - CMG_Portal
             - Sandy_Portal
@@ -85,9 +85,9 @@ roms.yaml
         pattern: .*test_nc4_[0-9]{4}\.nc$
 
 
-Notes on the YAML file: 
+Notes on the YAML file:
 
-1. The aggregation `dir:` is the directory where the data (e.g. NetCDF files) are located, relative to the directory where the NcML will be.  In the above example, the NetCDF files are located in a subdirectory called "Output".  If the NetCDF files will be in the same directory as the NcML file, specify `dir: '.'`. 
+1. The aggregation `dir:` is the directory where the data (e.g. NetCDF files) are located, relative to the directory where the NcML will be.  In the above example, the NetCDF files are located in a subdirectory called "Output".  If the NetCDF files will be in the same directory as the NcML file, specify `dir: '.'`.
 
 2. Specify that all variables should appear in the aggregation (none excluded) like this:
 
