@@ -1,0 +1,99 @@
+dataset:
+    id: "USGS_BBLEH_SANDY_076NS"
+
+    title: "USGS Barnegat Bay Hydrodynamic Model for March-September 2012"
+
+    naming_authority:
+        - gov.usgs.cmgp.whsc
+
+    summary: "We used the Coupled Ocean-Atmosphere-Wave-Sediment Transport (COAWST; Warner and others, 2010) model to simulate ocean circulation, waves, and sediment transport in Barnegat Bay, New Jersey, during Hurricane Sandy. The simulation period was from October 27 to November 4, 2012. Initial conditions for the salinity and temperature fields in the domain were acquired from a 7-month simulation of the same domain (Defne and Ganju, 2018). We used a 2012 digital terrain model (Andrews and others, 2015) to prescribe the prestorm bathymetry. Wetting and drying was enabled, wave-current interaction was modeled with a boundary-layer formulation accounting for the apparent roughness of waves, and the vortex force formulation was used for wave-energy conservation. We used three noncohesive sediment classes to define the sediment bed (sand, very fine sand, and silt). Marshes and subaerial sediment were represented by an additional class that was coarser, non-erodible, and immobile. The hydrodynamic model requires forcing to be defined at the lateral open boundaries and the air-sea interface. Air-sea fluxes are specified by using a bulk flux parametrization and data from the North American Regional Reanalysis, supplemented with wind speed data from the U.S. Geological Survey weather station in Barnegat Light, N.J. The river inflow was specified as point sources at seven gages. Additionally, spectral wave data from the COAWST forecast system for the U.S. east coast and Gulf of Mexico were imposed at the eastern boundary. The lateral open boundary conditions included tidal water level and velocity amplitudes for the North Atlantic, detided barotropic velocity, and detided water level from the COAWST model of the U.S. east coast. Salinity and temperature boundary conditions were supplied by the COAWST model of the U.S. east coast. In addition to the baseline simulation (Storm), we developed a simulation representing the nonstorm conditions for the same period (nonStorm) by filtering the storm signal from the forcing fields. Additionally, we simulated the same period by systematically removing a selected forcing mechanism per simulation to analyze the influence of that mechanism in driving the estuarine response. Specifically, we first removed offshore waves (noSwell), then removed locally generated waves (noSW), and finally removed local wind (noSWW). For more details on the sources of model setup, see Defne and others (2019)."
+
+#MUST have gmd:purpose
+    purpose: "Simulation of hydrodynamics and sediment transport in Barnegat Bay, New Jersey for the Hurricane Sandy period (10/27/2012 to 11/04/2012) assuming non-storm conditions. This simulation was designed to provide hydrodynamic modeling results on a native grid and time step to support the scientific research on hydrodynamic circulation, wave conditions and sediment transport in Barnegat Bay for the period of Hurricane Sandy after filtering the storm forcing. These model results may also be reused to support any prospective research work where appropriate."
+
+#MUST have 
+#gmd:supplementalInformation
+#crossReference
+#suggestedCitation in LegalCOnstraints
+#MI_coverage description is Grid Cell
+#MUST have DOI number 
+#MD_Georeferenceable for realistic simulations
+#LargerWork citation?    
+    project:
+        - CMG_Portal
+#are multiple projects allowed
+        - Sandy_Portal
+
+    creator:
+        email: zdefne@usgs.gov
+        name: Zafer Defne
+        institution: U.S. Geological Survey
+        url: https://www.usgs.gov/staff-profiles/zdefne
+
+    publisher:
+        email: zdefne@usgs.gov
+        name: Zafer Defne
+        institution: U.S. Geological Survey
+        url: https://www.usgs.gov/staff-profiles/zdefne
+
+    contributor:
+        role: principalInvestigator
+        email: nganju@usgs.gov
+        name: Neil Ganju
+        institution: U.S. Geological Survey
+        url: https://www.usgs.gov/staff-profiles/nganju
+
+#there is no distributor, use publisher     
+distributor:
+        role: principalInvestigator
+        email: sciencebase@usgs.gov
+        name: No name
+        institution: U.S. Geological Survey
+        url: https://www.sciencebase.gov
+
+#MUST have keywords. But only one keywords_vocabulary is allowed?
+    keywords: "New Jersey, Regional Ocean Model (ROMS)" 
+    keywords_vocabulary:
+        "USGS Thesaurus"
+
+    keywords: "Earth Science Services > Models &gt; Ocean General Circulation Models (OGCM)/Regional Ocean Models, Earth Science &gt; Oceans &gt; Salinity/Density > Salinity"
+    keywords_vocabulary:
+        "GCMD Science Keywords"
+        
+    license: "The data may be used and redistributed for free but is not intended for legal use, since it may contain inaccuracies. Neither the data Contributor, nor the United States Government, nor any of their employees or contractors, makes any warranty, express or implied, including warranties of merchantability and fitness for a particular purpose, or assumes any legal liability for the accuracy, completeness, or usefulness, of this information."
+
+    references:
+        - http://woodshole.er.usgs.gov/project-pages/estuaries/
+        - http://woodshole.er.usgs.gov/operations/modeling/COAWST/
+    
+    acknowledgement: "Funding was provided by the Coastal and Marine Geology Program of the U.S. Geological Survey the New Jersey Department of Environmental Protection. Assistance was provided by John Warner for numerical modeling, Jennifer Miselis and Brian Andrews for model grid. Hydrologic data were collected by the New Jersey Water Science Center of the U.S. Geological Survey "
+        
+    date:
+        created: 2019/01/01
+        issued: 2019/01/01
+        modified: 2019/01/01
+    
+
+
+variables:
+# select variables to exclude (if it is a shorter list than the list of variables to include)
+    exclude:
+        - u
+        - v
+        - w
+
+# or select variables to include 
+    include:
+        - zeta
+        - ubar
+        - vbar
+        - temp
+        - salt
+
+
+aggregation:
+    time_var: ocean_time
+    dir: ../../../../GitHub/
+    sample_file: his_bbleh_0081.nc
+    pattern: .*his_bbleh_[0-9]{4}\.nc$
+    
