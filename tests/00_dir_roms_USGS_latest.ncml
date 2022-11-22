@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<netcdf xmlns="http://www.unidata.ucar.edu/namespaces/netcdf/ncml-2.2">
+  <attribute name="Conventions" type="String" value="CF-1.6, SGRID-0.1, ACDD-1.3"/>
+  <attribute name="cdm_data_type" type="String" value="Grid"/>
+  <attribute name="id" type="String" value="USGS_BBLEH_RUN071TRX"/>
+  <attribute name="title" type="String" value="USGS Barnegat Bay Hydrodynamic Model for March-September 2012"/>
+  <attribute name="summary" type="String" value="Simulation of hydrodynamic circulation in Barnegat Bay for the period from 03-01-2012 to 10-01-2012. The bathymetry of the model was based on the National Ocean Service Hydrographic Survey data, and updated with recent bathymetric measurements. At the landward end (western boundary), we specified point sources of freshwater in accordance with USGS streamflow measurements at 7 gauges, and a radiation boundary condition that allows tidal energy to propagate landward. On the seaward end, tidal water level and velocity amplitudes from the ADCIRC tidal constituents database for the North Atlantic were applied. These were supplemented by the subtidal water level and subtidal barotropic velocity from the ESPreSSO model, which covers the Mid-Atlantic Bight at 6 kilometer resolution. At the ocean boundary, a combination of Chapman, Flather, and gradient boundary conditions were used. Salinity and temperature was also supplied by the ESPreSSO model. A radiation condition with nudging on a 6-hour timescale for tracers allowed for relaxation of the model solution relative to the forcing data, which prevented sharp gradients at the seaward boundary and subsequent oscillations in the solution. At the ocean-atmosphere interface we applied meteorological forcing from North American Mesoscale Model. The bulk flux parameterization routine was used with 3-hour wind velocity, air pressure, long and shortwave radiation, relative humidity, and rain inputs. For more details on the model set up see Defne and Ganju, 2015. Reference: Defne, Zafer, and Ganju, N. K., 2015, Quantifying the residence time and flushing characteristics of a shallow, back-barrier estuary: application of hydrodynamic and particle tracking models, Estuaries and Coasts, 38, 1719-1734"/>
+  <attribute name="project" type="String" value="CMG_Portal"/>
+  <attribute name="creator_email" type="String" value="zdefne@usgs.gov"/>
+  <attribute name="creator_url" type="String" value="http://profile.usgs.gov/zdefne"/>
+  <attribute name="creator_name" type="String" value="Zafer Defne"/>
+  <attribute name="creator_institution" value="U.S. Geological Survey" />
+  <attribute name="publisher_email" type="String" value="zdefne@usgs.gov"/>
+  <attribute name="publisher_url" type="String" value="http://profile.usgs.gov/zdefne"/>
+  <attribute name="publisher_name" type="String" value="Zafer Defne"/>
+  <attribute name="publisher_institution" value="U.S. Geological Survey" />
+  <attribute name="contributor_role" type="String" value="principalInvestigator"/>
+  <attribute name="contributor_email" type="String" value="nganju@usgs.gov"/>
+  <attribute name="contributor_url" type="String" value="http://profile.usgs.gov/nganju"/>
+  <attribute name="contributor_name" type="String" value="Neil Ganju"/>
+  <attribute name="contributor_institution" value="U.S. Geological Survey" />
+  <attribute name="naming_authority" type="String" value="gov.usgs.cmgp.whsc"/>
+  <attribute name="license" type="String" value="Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data for other purposes, nor on all computer systems, nor shall the act of distribution constitute any such warranty."/>
+  <attribute name="references" type="String" value="http://woodshole.er.usgs.gov/project-pages/estuaries/,http://woodshole.er.usgs.gov/operations/modeling/COAWST/"/>
+  <attribute name="keywords" value="Earth Science Services > Models > Ocean General Circulation Models (OGCM)/Regional Ocean Models, Earth Science Services > Models > Weather Research/Forecast Models, Earth Science > Oceans > Ocean Temperature > Potential Temperature, Earth Science > Oceans > Salinity/Density > Salinity, Earth Science > Oceans > Sea Surface Topography > Sea Surface Height, Earth Science > Oceans > Ocean Circulation > Ocean Currents"/>
+  <attribute name="processing_level" type="String" value="The model results were compared against available water level, velocity, salinity and temperature measurements in the bay."/>
+  <attribute name="locations" value="Continent > North America > United States Of America > New Jersey, Ocean > Atlantic Ocean > Nrth Atlantic Ocean"/>
+  <attribute name="locations_vocabulary" value="GCMD Location Keywords"/>
+  <attribute name="keywords_vocabulary" value="GCMD Science Keywords" />
+  <attribute name="standard_name_vocabulary" value="CF Standard Name Table v39"/>
+  <attribute name="Metadata_Conventions" type="String" value="Unidata Dataset Discovery v1.0"/>
+  <attribute name="Metadata_Link" type="String" value="https://doi.org/10.5066/F7SB44QS"/>
+  <attribute name="time_coverage_start" type="String" value="2012-03-01T00:00:00"/>
+  <attribute name="time_coverage_end" type="String" value="2012-10-01T00:00:00"/>
+  <attribute name="time_coverage_durationn" type="String" value="P0Y7M" />
+  <attribute name="time_coverage_resolution" type="String" value="PT30M" />
+  <attribute name="geospatial_vertical_min" type="String" value="0"/>
+  <attribute name="geospatial_vertical_max" type="String" value="25.0"/>
+  <attribute name="geospatial_vertical_positive" value="down" />  
+  <attribute name="geospatial_vertical_units" value="meter" />
+  <attribute name="date_created" value="2015-04-01" />
+  <attribute name="date_modified" value="2015-04-01" />
+  <attribute name="date_issued" value="2017-12-01" />
+  <attribute name="date_metadata_modified" value="2017-11-01" />
+  <attribute name="institution" value="U.S. Geological Survey" />
+  <attribute name="acknowledgment" value="Funding was provided by the Coastal and Marine Geology Program of the U.S. Geological Survey the New Jersey Department of Environmental Protection. Assistance was provided by John Warner for numrical modeling, Jennifer Miselis and Brian Andrews for model grid. Hydrologic data were collected by the New Jersey Water Science Center of the U.S. Geological Survey " />
+  <attribute name="comment" value="a selection of model output fields are also available at the USGS Oceanographic Data and Model Portal, http://cmgdata.usgsportals.net . Geospatial vertical resolution is variable due to the sigma coordinate system of the numerical model." />
+
+<variable name="Tobc_in">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="False"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+</variable>
+
+<variable name="Tobc_out">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="False"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+</variable>
+
+<variable name="h">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="f">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="pm">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="pn">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lon_rho">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lat_rho">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="lon_u">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge1"/>
+</variable>
+
+<variable name="lat_u">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge1"/>
+</variable>
+
+<variable name="lon_v">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge2"/>
+</variable>
+
+<variable name="lat_v">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge2"/>
+</variable>
+
+<variable name="lon_psi">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+</variable>
+
+<variable name="lat_psi">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+</variable>
+
+<variable name="angle">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="mask_rho">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="mask_u">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge1"/>
+</variable>
+
+<variable name="mask_v">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge2"/>
+</variable>
+
+<variable name="mask_psi">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+</variable>
+
+<variable name="wetdry_mask_rho">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="wetdry_mask_u">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge1"/>
+</variable>
+
+<variable name="wetdry_mask_v">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge2"/>
+</variable>
+
+<variable name="zeta">
+  <attribute name="standard_name" type="String" value="sea_surface_height_above_geopotential_datum"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="ubar">
+  <attribute name="standard_name" type="String" value="barotropic_sea_water_x_velocity"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge1"/>
+</variable>
+
+<variable name="vbar">
+  <attribute name="standard_name" type="String" value="barotropic_sea_water_y_velocity"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge2"/>
+</variable>
+
+<variable name="u">
+  <attribute name="standard_name" type="String" value="sea_water_x_velocity"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="False"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge1"/>
+</variable>
+
+<variable name="v">
+  <attribute name="standard_name" type="String" value="sea_water_y_velocity"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="False"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge2"/>
+</variable>
+
+<variable name="w">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="False"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="temp">
+  <attribute name="standard_name" type="String" value="sea_water_potential_temperature"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="salt">
+  <attribute name="standard_name" type="String" value="sea_water_salinity"/>
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="rho">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="AKs">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="face"/>
+</variable>
+
+<variable name="bustr">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge1"/>
+</variable>
+
+<variable name="bvstr">
+  <attribute name="grid" type="String" value="grid"/>
+  <attribute name="display" type="String" value="True"/>
+  <attribute name="coverage_content_type" type="String" value="modelResult"/>
+  <attribute name="location" type="String" value="edge2"/>
+</variable>
+
+
+<variable name="ocean_time">
+  <attribute name="standard_name" type="String" value="time"/>
+</variable>
+
+<variable name="grid" type="int">
+        <attribute name="cf_role" value="grid_topology"/>
+        <attribute name="topology_dimension" type="int" value="2"/>
+        <attribute name="node_dimensions" value="xi_psi eta_psi"/>
+        <attribute name="face_dimensions"
+            value="xi_rho: xi_psi (padding: both) eta_rho: eta_psi (padding: both)"/>
+        <attribute name="edge1_dimensions" value="xi_u: xi_psi eta_u: eta_psi (padding: both)"/>
+        <attribute name="edge2_dimensions" value="xi_v: xi_psi (padding: both) eta_v: eta_psi"/>
+        <attribute name="node_coordinates" value="lon_psi lat_psi"/>
+        <attribute name="face_coordinates" value="lon_rho lat_rho"/>
+        <attribute name="edge1_coordinates" value="lon_u lat_u"/>
+        <attribute name="edge2_coordinates" value="lon_v lat_v"/>
+        <attribute name="vertical_dimensions" value="s_rho: s_w (padding: none)"/>
+    </variable>
+<aggregation dimName="ocean_time" type="joinExisting">
+<scan location="his/" regExp=".*his_bbleh_[0-9]{4}\.nc$" subdirs="false"/>
+</aggregation>
+</netcdf>
